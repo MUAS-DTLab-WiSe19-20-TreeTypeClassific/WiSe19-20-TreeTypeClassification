@@ -1,0 +1,21 @@
+#!/bin/bash
+echo "pn2.bash"
+python -V
+source activate env_pytorch_p++
+echo "$PYTHONPATH"
+PYTHONPATH='${PYTHONPATH}:/home/pflab/Desktop/Roessl/Pointnet++/Pytorch/Pointnet2_Pytorch-master'
+export PYTHONPATH
+echo "$PYTHONPATH"
+python -V
+#PYTHONPATH=/home/pflab/Desktop/Roessl/Pointnet++/Pytorch/Pointnet2_Pytorch-master python train_cls_tschernobyl.py --visdom
+#BATCHSIZE="${BATCHSIZE}:(8 20 26)"
+#learningr=(10000 1000 100)
+#learningrdecay=(1 7 9)
+#decaystep=(2000 6000 8000 10000)
+#weightdecay=(1000 10000 100000)
+for ((z=0;z<1;z++))
+do
+	#python train_cls_tschernobyl.py --visdom
+	python train_cls_tschernobyl.py
+done
+echo "Done with the experiment"

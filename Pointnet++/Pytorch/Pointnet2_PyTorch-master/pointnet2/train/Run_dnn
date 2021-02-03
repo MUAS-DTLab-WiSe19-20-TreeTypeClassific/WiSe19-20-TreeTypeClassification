@@ -1,0 +1,40 @@
+#!/bin/bash
+echo "pn2.bash"
+python -V
+source activate env_pytorch_p++
+#-master/pointnet2/train
+#python -V
+echo "$PYTHONPATH"
+PYTHONPATH='${PYTHONPATH}:/home/pflab/Desktop/Roessl/Pointnet++/Pytorch/Pointnet2_Pytorch-master'
+export PYTHONPATH
+echo "$PYTHONPATH"
+python -V
+#PYTHONPATH=/home/pflab/Desktop/Roessl/Pointnet++/Pytorch/Pointnet2_Pytorch-master python train_cls_tschernobyl.py --visdom
+#BATCHSIZE="${BATCHSIZE}:(8 20 26)"
+learningr=(10000 1000 100)
+learningrdecay=(1 7 9)
+decaystep=(2000 6000 8000 10000)
+weightdecay=(1000 10000 100000)
+for w in  "${weightdecay[@]}"
+do
+for d in "${decaystep[@]}"
+do
+for l in "${learningrdecay[@]}"
+do
+for x in "${learningr[@]}"
+do
+for ((z=1;z<4;z++))
+do
+	weight=$( echo "(1/$w)"| bc -l)
+	decaystep=$( echo "($d/1)"| bc -l)
+	lr=$( echo "(1/$x)"| bc -l)
+	lr_decay=$( echo "(1/$l)"| bc -l)
+#	python train_cls_tschernobyl.py -lr "$lr" --visdom -lr_decay "$lr_decay"
+#	python train_cls_tschernobyl.py -batch_size "$bs" --visdom
+	python train_cls_tschernobyl.py --visdom -lr "$lr" -lr_decay "$lr_decay" -decay_step "$decaystep" -weight_decay "$weight"
+done
+done
+done
+done
+done
+echo "Done"

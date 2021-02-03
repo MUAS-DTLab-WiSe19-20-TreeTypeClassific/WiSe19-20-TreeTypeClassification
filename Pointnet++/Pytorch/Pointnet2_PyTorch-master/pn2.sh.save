@@ -1,0 +1,7 @@
+echo "pn2.sh"
+source activate env_pytorch_p++
+cd /home/pflab/Desktop/Roessl/Pointnet++/Pytorch/Pointnet2_PyTorch-master/pointnet2/train
+python -V
+PYTHONPATH=/home/pflab/Desktop/Roessl/Pointnet++/Pytorch/Pointnet3_Pytorch-master
+PYTHONPATH python train_cls_tschernobyl.py --visdom
+echo "Done"
