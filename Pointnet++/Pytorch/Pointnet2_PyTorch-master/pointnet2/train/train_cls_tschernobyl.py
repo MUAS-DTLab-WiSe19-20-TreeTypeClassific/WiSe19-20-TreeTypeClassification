@@ -151,7 +151,10 @@ if __name__ == "__main__":
 
     model_fn = model_fn_decorator(nn.CrossEntropyLoss())
 
-    viz = pt_utils.CmdLineViz()
+    if args.visdom:
+        viz = pt_utils.VisdomViz(port=args.visdom_port)
+    else:
+        viz = pt_utils.CmdLineViz()
 
     viz.text(pprint.pformat(vars(args)))
 
