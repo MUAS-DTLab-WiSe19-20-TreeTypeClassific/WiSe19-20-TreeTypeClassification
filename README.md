@@ -33,13 +33,16 @@ git clone https://github.com/MUAS-DTLab-WiSe19-20-TreeTypeClassific/WiSe19-20-Tr
 ````
 docker run -it --gpus all -v $HOME/WiSe19-20-TreeTypeClassification:$HOME/WiSe19-20-TreeTypeClassification -v $HOME/result:/pointnet2/result cevallos/pointnet2:dtlab bash
 ````
-    
-* Building `_ext` module
 
-
-
+* Navigate to the repo directory and activate the custom conda environment
 ````
 cd /home/ubuntu/WiSe19-20-TreeTypeClassification/Pointnet++/Pytorch/Pointnet2_PyTorch-master/
+conda activate env_pytorch_p++
+````
+
+* Building `_ext` module
+
+````
 python setup.py build_ext --inplace
 ````
 
