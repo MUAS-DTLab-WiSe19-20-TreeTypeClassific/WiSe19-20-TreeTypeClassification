@@ -132,11 +132,8 @@ if __name__ == "__main__":
 
     it = max(it, 0)  # for the initialize value of `trainer.train`
     model_fn = model_fn_decorator(nn.CrossEntropyLoss())  # loss function to be used
-
-    if args.visdom:
-        viz = pt_utils.VisdomViz(port=args.visdom_port)
-    else:
-        viz = pt_utils.CmdLineViz()
+    
+    viz = pt_utils.CmdLineViz()
 
     viz.text(pprint.pformat(vars(args)))
 
