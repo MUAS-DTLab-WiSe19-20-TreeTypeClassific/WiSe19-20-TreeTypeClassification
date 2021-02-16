@@ -4,13 +4,17 @@
 # WiSe19-20-TreeTypeClassification
 ============================
 
+
 Deep Learning-based Classification of Tree Species and Standing Dead Trees on AWS Architecture
 
 * Implemention of Pointnet2/Pointnet++ written in `PyTorch <http://pytorch.org>`_.
 
+
 * Based on the implementation from `erikwijmans <https://github.com/erikwijmans/Pointnet2_PyTorch>`_.
 
+
 The environment was customized locally and pushed to AWS via a docker image ``cevallos/pointnet2:dtlab``.
+
 
 The custom ops used by Pointnet++ are currently **ONLY** supported on the GPU using CUDA.
 
