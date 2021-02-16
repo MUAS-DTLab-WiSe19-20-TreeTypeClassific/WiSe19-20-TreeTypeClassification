@@ -73,5 +73,5 @@ Custom training
 
 For this challenge a custom code for the tree data was implemented, it can be run via
 ````
-  python ./pointnet2/train/train_cls_tschernobyl.py
+python ./pointnet2/train/train_cls_tschernobyl.py
 ````
